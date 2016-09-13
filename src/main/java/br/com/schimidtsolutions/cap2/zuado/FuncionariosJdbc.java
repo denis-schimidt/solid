@@ -36,29 +36,4 @@ public class FuncionariosJdbc implements Funcionarios {
 		return funcionarios;
 
 	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see br.com.schimidtsolutions.cap2.zuado.Funcionarios#pagamento(br.com.
-	 * schimidtsolutions.cap2.zuado.Funcionario)
-	 */
-	@Override
-	public void pagamento(Funcionario f) {
-		final String sql = "insert into folha_pagamento(id_funcionario, salario_base, salario_liquido, data) " + "values (?,?,?,?)";
-
-		ConexaoBd conexao = new Conexao().obtemConexao();
-		PreparedStatement ps = conexao.preparaSql(sql);
-		try {
-			ps.setLong(0, f.getId());
-			ps.setDouble(1, f.getSalarioBase());
-			ps.setDouble(2, f.getSalarioLiquido());
-			ps.setDate(3, new Date(new java.util.Date().getTime()));
-			ps.execute();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
 }

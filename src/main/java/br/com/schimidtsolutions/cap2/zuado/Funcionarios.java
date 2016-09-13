@@ -5,6 +5,4 @@ import java.util.List;
 public interface Funcionarios {
 
 	List<Funcionario> obtemFuncionarios();
-
-	void pagamento(Funcionario f);
 }
