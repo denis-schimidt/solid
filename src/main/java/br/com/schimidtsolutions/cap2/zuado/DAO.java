@@ -2,12 +2,13 @@ package br.com.schimidtsolutions.cap2.zuado;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DAO {
 
-	public List<Funcionario> obtemFuncionarios(){
+	public List<Funcionario> obtemFuncionarios() throws SQLException{
 		final String sql = "SELECT * FROM funcionario f WHERE f.deleted=0";
 		ConexaoBd conexao = new Conexao().obtemConexao();
 		PreparedStatement ps = conexao.preparaSql(sql);
@@ -24,7 +25,7 @@ public class DAO {
 		return funcionarios;
 	}
 
-	public void pagamento() {
+	public void pagamento() throws SQLException {
 		final String sql = "insert into folha_pagamento(...) values (...)";
 		ConexaoBd conexao = new Conexao().obtemConexao();
 		PreparedStatement ps = conexao.preparaSql(sql);
